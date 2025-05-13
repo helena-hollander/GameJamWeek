@@ -12,27 +12,35 @@ public class BeatleMovement : MonoBehaviour
     public float offset = 3f;
     public Animator animator;
     private string animToPlay;
+    public GameObject trackedPoop;
+    private Vector3 lastPoopPos;
+    private bool moved = false;
+    
     
     public float speed = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        poopPos = transform.position;
+        lastPoopPos = trackedPoop.transform.position;
+       
     }
 
     // Update is called once per frame
     private void StartAnimating()
     {
-        if (player.transform.position != poopPos)
+        if (moved == true)
+        {
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            animToPlay = "Run";
+        }
+        else
         {
             animToPlay = "Walk";
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                animToPlay = "Run";
-                animator.SetTrigger(animToPlay);
-                
-            }
+        }
+
         animator.SetTrigger(animToPlay);
         }
     }
@@ -43,9 +51,26 @@ public class BeatleMovement : MonoBehaviour
         xInput = Input.GetAxis("Horizontal");
         zInput = Input.GetAxis("Vertical");
         rb.AddForce(xInput *speed, 0, zInput * speed);
-        
         poopPos = transform.position;
+        
+        
         player.transform.position = new Vector3(poopPos.x - offset, poopPos.y, poopPos.z - offset);
         StartAnimating();
+        OnTransformedChanged();
     }
+void OnTransformedChanged()
+    {
+        if (trackedPoop.transform.position != lastPoopPos)
+        {
+            moved = true;
+            
+        }
+        else
+        {
+            moved = false;
+        }
+
+        lastPoopPos = trackedPoop.transform.position;
+    }
+    
 }
