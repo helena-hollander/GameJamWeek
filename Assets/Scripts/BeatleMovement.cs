@@ -68,25 +68,34 @@ public class BeatleMovement : MonoBehaviour
                 player.transform.rotation,
                 targetRotation,
                 rotationSpeed * Time.fixedDeltaTime
+            
             );
+          
         }
         
-            player.transform.position = transform.position;
+        player.transform.position = transform.position;
         
         StartAnimating();
         OnTransformedChanged();
         //player.transform.rotation = Quaternion.Euler(player.transform.rotation.x, player.transform.rotation.y, 0f);
     }
-void OnTransformedChanged()
+    void OnTransformedChanged()
     {
-        if (trackedPoop.transform.position != lastPoopPos)
+        float movementThreshold = 0.01f; // Tolerance value — adjust as needed
+        float distance = Vector3.Distance(trackedPoop.transform.position, lastPoopPos);
+
+        if (distance > movementThreshold)
         {
             moved = true;
-            
+            // Optional: clear Idle trigger if needed
+            // animator.ResetTrigger("Idle");
+            print("moving");
         }
         else
         {
             moved = false;
+            animToPlay = "Idle";
+            animator.SetTrigger(animToPlay);
         }
 
         lastPoopPos = trackedPoop.transform.position;
