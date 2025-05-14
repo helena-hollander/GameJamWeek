@@ -53,8 +53,7 @@ public class BeatleMovement : MonoBehaviour
         rb.AddForce(xInput *speed, 0, zInput * speed);
         poopPos = transform.position;
         
-        
-        player.transform.position = new Vector3(poopPos.x - offset, poopPos.y, poopPos.z - offset);
+        player.transform.position = new Vector3(poopPos.x - rb.linearVelocity.x, poopPos.y,poopPos.z - rb.linearVelocity.z);
         StartAnimating();
         OnTransformedChanged();
     }
