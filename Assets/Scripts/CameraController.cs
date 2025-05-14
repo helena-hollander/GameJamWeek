@@ -15,5 +15,11 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         transform.position = poopBall.transform.position + offset;
+        Vector3 directionToPlayer = transform.position - poopBall.transform.position;
+        
+        
+            
+        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+        transform.rotation = targetRotation;
     }
 }

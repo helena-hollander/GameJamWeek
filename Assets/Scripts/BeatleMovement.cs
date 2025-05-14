@@ -54,8 +54,17 @@ public class BeatleMovement : MonoBehaviour
         poopPos = transform.position;
         
         player.transform.position = new Vector3(poopPos.x - rb.linearVelocity.x, poopPos.y,poopPos.z - rb.linearVelocity.z);
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        
+        
+            
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            player.transform.rotation = targetRotation;
+        
+        
         StartAnimating();
         OnTransformedChanged();
+        //player.transform.rotation = Quaternion.Euler(player.transform.rotation.x, player.transform.rotation.y, 0f);
     }
 void OnTransformedChanged()
     {

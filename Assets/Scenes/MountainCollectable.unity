@@ -150,6 +150,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &407641781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 31868661029467799, guid: 863ab54b5b77d48118c8e748624cf6cc, type: 3}
+  m_PrefabInstance: {fileID: 2120464404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &590544499
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +801,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -40.838
       objectReference: {fileID: 0}
+    - target: {fileID: 646169233646298006, guid: 863ab54b5b77d48118c8e748624cf6cc, type: 3}
+      propertyPath: poopBall
+      value: 
+      objectReference: {fileID: 407641781}
     - target: {fileID: 2222598238544464393, guid: 863ab54b5b77d48118c8e748624cf6cc, type: 3}
       propertyPath: m_Name
       value: PoopBeetleCam
