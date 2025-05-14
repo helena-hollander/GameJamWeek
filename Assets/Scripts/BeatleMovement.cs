@@ -45,22 +45,33 @@ public class BeatleMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         xInput = Input.GetAxis("Horizontal");
         zInput = Input.GetAxis("Vertical");
-        rb.AddForce(xInput *speed, 0, zInput * speed);
+        rb.AddForce(player.transform.TransformVector(xInput *speed, 0, zInput * speed));
         poopPos = transform.position;
         
-        player.transform.position = new Vector3(poopPos.x - rb.linearVelocity.x, poopPos.y,poopPos.z - rb.linearVelocity.z);
-        Vector3 directionToPlayer = player.transform.position - transform.position;
+        Vector3 directionToPlayer = transform.position - player.transform.position;
         
         
             
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            player.transform.rotation = targetRotation;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+        float angleDifference = Quaternion.Angle(player.transform.rotation, targetRotation);
+
+// Only rotate if the angle is significant
+        if (angleDifference > 0.5f) //How quickly it turns
+        {
+            float rotationSpeed = 7f; // How fast it turns
+            player.transform.rotation = Quaternion.Slerp(
+                player.transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.fixedDeltaTime
+            );
+        }
         
+            player.transform.position = transform.position;
         
         StartAnimating();
         OnTransformedChanged();

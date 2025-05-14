@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31868661029467799}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.4024263, z: -0, w: 0.9154524}
-  m_LocalPosition: {x: -2.878397, y: 46.51374, z: -245.11778}
+  m_LocalRotation: {x: -0, y: -0.34887946, z: -0, w: 0.9371676}
+  m_LocalPosition: {x: -3.3414001, y: 46.51374, z: -244.90376}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6103223125381744885}
-  m_LocalEulerAnglesHint: {x: 0, y: 47.46, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -40.838, z: 0}
 --- !u!33 &8697720288705201994
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -164,7 +164,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4103184809013980867}
-  - component: {fileID: 707076348195126177}
   m_Layer: 0
   m_Name: Beetle Container
   m_TagString: Untagged
@@ -180,41 +179,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586485266328906304}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.4024263, z: -0, w: 0.9154524}
-  m_LocalPosition: {x: -4.4990463, y: 45.54519, z: -246.48831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.3414001, y: 46.51374, z: -244.90376}
   m_LocalScale: {x: 1, y: 1.0629, z: 1.0634}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1232918009941821652}
   m_Father: {fileID: 6103223125381744885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &707076348195126177
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586485266328906304}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &2222598238544464393
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +233,6 @@ GameObject:
   - component: {fileID: 303377184938981687}
   - component: {fileID: 5616373467809839531}
   - component: {fileID: 2944197789554722599}
-  - component: {fileID: 2683934855662961450}
   - component: {fileID: 1124441777778286717}
   m_Layer: 0
   m_Name: Beatle
@@ -279,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 8071845404885660884}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,33 +332,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2683934855662961450
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8071845404885660884}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!95 &1124441777778286717
 Animator:
   serializedVersion: 7
