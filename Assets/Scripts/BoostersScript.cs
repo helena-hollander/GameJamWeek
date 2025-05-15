@@ -4,7 +4,7 @@ using System.Collections;
 public class BoostersScript : MonoBehaviour
 {
     public GameObject player;
-    public GameObject bouncer;
+    private GameObject bouncer;
     private GameObject blood;
     public float jumpSpeed = 0f;
 
@@ -12,32 +12,38 @@ public class BoostersScript : MonoBehaviour
 
     void Start()
 {
-    if (bouncer != null)
+    bouncer = transform.Find("Bouncer")?.gameObject;
+    blood = transform.Find("Blood")?.gameObject;
+
+    if (bouncer == null) Debug.LogWarning("Bouncer not found in children");
+    if (blood == null) Debug.LogWarning("Blood not found in children");
+}
+
+void Update()
+{
+    if (Vector3.Distance(transform.position, player.transform.position) < 2f)
     {
-        bouncer = Instantiate(bouncer, transform);
-    }
-    if (blood != null)
-    {
-        blood = Instantiate(blood, transform);
+        Debug.Log($"Near booster: {gameObject.name}, hasJumped = {hasJumped}");
     }
 }
 
 
 
     void OnTriggerEnter(Collider other)
+{
+    Debug.Log($"OnTriggerEnter called with {other.gameObject.name}");
+    if (other.gameObject == player && !hasJumped)
     {
-        if (other.gameObject == player && !hasJumped)
-        {
-            hasJumped = true;
-            Debug.Log("Boost activated");
-            player.GetComponent<Rigidbody>().AddForce(0, jumpSpeed, 0, ForceMode.VelocityChange);
+        hasJumped = true;
+        Debug.Log("Boost activated");
+        player.GetComponent<Rigidbody>().AddForce(0, jumpSpeed, 0, ForceMode.VelocityChange);
 
-            bouncer.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
-            blood.transform.localScale = new Vector3(2.5f, 0.02f, 2.5f);
-        }
+        bouncer.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
+        blood.transform.localScale = new Vector3(2.5f, 0.02f, 2.5f);
     }
+}
 
-    void OnTriggerExit(Collider other)
+void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)
         {
@@ -45,4 +51,5 @@ public class BoostersScript : MonoBehaviour
             Debug.Log("Player left booster, can jump again");
         }
     }
+
 }
