@@ -89,7 +89,7 @@ public class BeatleMovement : MonoBehaviour
             moved = true;
             // Optional: clear Idle trigger if needed
             // animator.ResetTrigger("Idle");
-            print("moving");
+            //print("moving");
         }
         else
         {
