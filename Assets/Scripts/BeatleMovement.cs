@@ -61,9 +61,9 @@ public class BeatleMovement : MonoBehaviour
         float angleDifference = Quaternion.Angle(player.transform.rotation, targetRotation);
 
 // Only rotate if the angle is significant
-        if (angleDifference > 0.5f) //How quickly it turns
+        if (angleDifference > 0.4f) //How quickly it turns
         {
-            float rotationSpeed = 7f; // How fast it turns
+            float rotationSpeed = 5f; // How fast it turns
             player.transform.rotation = Quaternion.Slerp(
                 player.transform.rotation,
                 targetRotation,
