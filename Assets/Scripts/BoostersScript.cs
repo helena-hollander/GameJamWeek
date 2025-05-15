@@ -4,7 +4,7 @@ using System.Collections;
 public class BoostersScript : MonoBehaviour
 {
     public GameObject player;
-    private GameObject bouncer;
+    public GameObject bouncer;
     private GameObject blood;
     public float jumpSpeed = 0f;
 
@@ -12,11 +12,16 @@ public class BoostersScript : MonoBehaviour
 
     void Start()
 {
-    if (player == null)
-        player = GameObject.FindWithTag("Player");
-    bouncer = GameObject.FindWithTag("Bouncer");
-    blood = GameObject.FindWithTag("Blood");
+    if (bouncer != null)
+    {
+        bouncer = Instantiate(bouncer, transform);
+    }
+    if (blood != null)
+    {
+        blood = Instantiate(blood, transform);
+    }
 }
+
 
 
     void OnTriggerEnter(Collider other)
