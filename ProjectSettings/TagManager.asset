@@ -7,6 +7,7 @@ TagManager:
   - Speeder
   - Scaler
   - Bouncer
+  - Web
   layers:
   - Default
   - TransparentFX

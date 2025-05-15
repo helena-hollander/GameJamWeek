@@ -27,7 +27,7 @@ public class BoostersScript : MonoBehaviour
     Debug.Log("OnTriggerEnter");
     player.GetComponent<Rigidbody>().AddForce(0, jumpSpeed, 0, ForceMode.VelocityChange);
     hasJumped = false;
-bouncer.transform.localScale = new Vector3(1f, 0.05f, 1f);
+    bouncer.transform.localScale = new Vector3(1f, 0.05f, 1f);
     }
 }
 
