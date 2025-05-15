@@ -7,6 +7,8 @@ TagManager:
   - Speeder
   - Scaler
   - Bouncer
+  - Web
+  - Blood
   layers:
   - Default
   - TransparentFX
