@@ -21,22 +21,18 @@ public class BoostersScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+   void OnTriggerEnter(Collider other)
 {
-    hasJumped = true;
-
-    if (hasJumped == true) {
-    Debug.Log("OnTriggerEnter");
-    player.GetComponent<Rigidbody>().AddForce(0, jumpSpeed, 0, ForceMode.VelocityChange);
-    hasJumped = false;
-    bouncer.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
-    blood.transform.localScale = new Vector3(2.5f, 0.02f, 2.5f);
-    
-    Vector3 pos = bouncer.transform.position;
-    pos.y = 0f;
-    bouncer.transform.position = pos;
-    
+    if (other.gameObject == player && !hasJumped)
+    {
+        hasJumped = true;
+        Debug.Log("OnTriggerEnter");
+        player.GetComponent<Rigidbody>().AddForce(0, jumpSpeed, 0, ForceMode.VelocityChange);
+        
+        bouncer.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
+        blood.transform.localScale = new Vector3(2.5f, 0.02f, 2.5f);
     }
 }
+
 
 }
